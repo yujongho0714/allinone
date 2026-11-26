@@ -21,7 +21,8 @@ window.JD_APPS = [
   { sec: 'ops', name: '단체문자', icon: 'sms', bg: '#16a34a', url: GH + 'check/#chat', desc: '단체방처럼 보고 한 분께 답장' },
   { sec: 'ops', name: '수련생 현황', icon: 'ppl', bg: '#0891b2', url: GH + 'check/#stats', desc: '학년별 · 형제 · 부모님 연락처' },
   { sec: 'ops', name: '전화 대상', icon: 'phone', bg: '#b91c1c', url: GH + 'check/#call', desc: '연락 없이 2일 이상 결석' },
-  { sec: 'ops', name: '차량 스케줄', icon: 'bus', bg: '#ca8a04', soon: true, desc: '부별 차량 시간 · 탑승 명단' },
+  { sec: 'ops', name: '차량 스케줄', icon: 'bus', bg: '#ca8a04', url: GH + 'check/#bus', desc: '노선도 · 실시간 위치 · 탑승 명단' },
+  { sec: 'ops', name: '운행 화면', icon: 'bus', bg: '#15803d', url: GH + 'check/#drive', desc: '기사님·선생님 폰 GPS 운행' },
   { sec: 'ops', name: '도보 픽업', icon: 'walk', bg: '#65a30d', url: GH + 'exit/', desc: '요일별 하원 · 도보 픽업 체크' },
   // 수련비
   { sec: 'money', name: '정도2관 수련비', icon: 'won', bg: '#d97706', url: GH + 'check/#fee', desc: '월별 원비 · 결석 차감 · 엑셀' },
