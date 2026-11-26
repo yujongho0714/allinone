@@ -34,7 +34,7 @@ window.JD_APPS = [
   { sec: 'exam', name: '심사 영상 촬영', icon: 'cam', bg: '#be185d', pkg: 'kr.jungdo.video', install: 'https://github.com/yujongho0714/movie/releases/latest', desc: '찍고 이름으로 저장 · 카톡 전송' },
   // 수련 · 교육
   { sec: 'edu', name: '월간 수련계획표', icon: 'cal', bg: '#0d9488', url: GH + 'plan/', desc: '달력 만들기 · 인쇄' },
-  { sec: 'edu', name: '라이프 스킬', icon: 'heart', bg: '#e11d48', soon: true, desc: '월간 인성 미션지' },
+  { sec: 'edu', name: '라이프 스킬', icon: 'heart', bg: '#e11d48', url: GH + 'check/#life', desc: '월간 인성 미션지 · 완료 체크 · 심사 점수' },
   { sec: 'edu', name: '인성교육 영상', icon: 'book', bg: '#9333ea', url: GH + 'check/#edu', desc: '월·주차별 인성 영상 · 이번 주 바로 틀기' },
   { sec: 'edu', name: '줄넘기', icon: 'rope', bg: '#2563eb', url: GH + 'jumprope/', desc: '줄넘기 시합 · 급수' },
   // 영상 코칭
