@@ -1,0 +1,30 @@
+name: Build APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - run: yes | sdkmanager --licenses || true
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.7
+      # 앱 안에 들어가는 홈 화면(인터넷 없을 때용)은 웹 홈과 같은 파일
+      - run: mkdir -p android/app/src/main/assets && cp index.html apps.js android/app/src/main/assets/
+      - run: gradle -p android assembleDebug --no-daemon
+      - run: cp android/app/build/outputs/apk/debug/app-debug.apk jungdo-allinone.apk
+      - run: gh release create v${{ github.run_number }} jungdo-allinone.apk --title "정도 올인원 v${{ github.run_number }}" --notes "폰·태블릿용 정도 올인원 앱"
+        env:
+          GH_TOKEN: ${{ github.token }}
