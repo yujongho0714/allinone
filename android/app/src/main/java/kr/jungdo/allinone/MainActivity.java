@@ -76,6 +76,11 @@ public class MainActivity extends Activity {
                 return true;
             }
             @Override
+            public void onReceivedHttpError(WebView v, WebResourceRequest r, android.webkit.WebResourceResponse e) {
+                // 홈 주소가 아직 안 열리면(404 등) 앱 안의 홈 화면
+                if (r.isForMainFrame() && e.getStatusCode() >= 400 && !offline) { offline = true; v.loadUrl("file:///android_asset/index.html"); }
+            }
+            @Override
             public void onReceivedError(WebView v, WebResourceRequest r, WebResourceError e) {
                 // 인터넷이 없어서 홈을 못 불러오면 앱 안의 홈 화면
                 if (r.isForMainFrame() && !offline) { offline = true; v.loadUrl("file:///android_asset/index.html"); }
