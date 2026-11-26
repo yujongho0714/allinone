@@ -92,8 +92,14 @@ public class MainActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        // 홈 화면이 뒤로가기를 받아서 '종료할까요?'를 물어봐요. 홈 화면을 못 불러온 경우엔 여기서 물어봐요.
-        if (web.canGoBack()) { web.goBack(); return; }
+        // 뒤로가기는 절대 바로 나가지 않아요: 홈 화면(jdBack)이 '종료할까요?'를 띄우고, 못 띄우면 여기서 물어봐요.
+        web.evaluateJavascript("(window.jdBack && window.jdBack()) ? 1 : 0", new android.webkit.ValueCallback<String>() {
+            @Override public void onReceiveValue(String v) { if (!"1".equals(v)) askExit(); }
+        });
+    }
+
+    private void askExit() {
+        if (isFinishing()) return;
         new AlertDialog.Builder(this).setTitle("정도 올인원").setMessage("올인원을 종료할까요?")
             .setPositiveButton("종료", new DialogInterface.OnClickListener() { @Override public void onClick(DialogInterface d, int w) { finish(); } })
             .setNegativeButton("취소", null).show();

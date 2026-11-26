@@ -11,9 +11,10 @@
   try { if (mode) sessionStorage.setItem('jd_aio', mode); else mode = sessionStorage.getItem('jd_aio') || ''; } catch (e) {}
   if (!mode || window.__jdBackGuard) return;
   window.__jdBackGuard = true;
-  var open = false;
-  function arm() { try { history.pushState({ jdGuard: 1 }, '', location.href); } catch (e) {} }
-  function goHome() { try { sessionStorage.removeItem('jd_aio'); } catch (e) {} location.href = mode === 'app' ? APP_HOME : HOME; }
+  var open = false, leaveOK = false, DEPTH = 4;
+  // 뒤로가기 받을 가짜 기록을 여러 겹 (누를 때마다 다시 채워서 연속으로 눌러도 안 나가요)
+  function arm() { for (var n = 0; n < DEPTH; n++) { var st = history.state; if (st && st.jdGuard >= DEPTH) break; try { history.pushState({ jdGuard: ((st && st.jdGuard) || 0) + 1 }, '', location.href); } catch (e) { break; } } }
+  function goHome() { leaveOK = true; try { sessionStorage.removeItem('jd_aio'); } catch (e) {} location.href = mode === 'app' ? APP_HOME : HOME; }
   function ask() {
     if (open) return; open = true;
     var d = document.createElement('div');
@@ -33,8 +34,11 @@
     document.body.appendChild(d);
   }
   arm();
+  ['pointerdown', 'keydown', 'touchstart'].forEach(function (t) { window.addEventListener(t, arm, { capture: true, passive: true }); });
   window.addEventListener('popstate', function (e) {
-    if (e.state && e.state.jdGuard) return;        // 앱 안에서 앞뒤로 움직인 것
-    arm(); ask();
+    if (e.state && e.state.jdApp) return;          // 앱이 직접 만든 기록
+    ask();
   });
+  // 브라우저에서 연 경우: 그래도 페이지를 벗어나려 하면 브라우저 확인창 (폰 올인원 앱에서 연 경우는 앱으로 돌아가니까 생략)
+  if (mode === '1') window.addEventListener('beforeunload', function (e) { if (leaveOK) return; e.preventDefault(); e.returnValue = ''; });
 })();
