@@ -22,7 +22,7 @@ window.JD_APPS = [
   { sec: 'ops', name: '수련생 현황', icon: 'ppl', bg: '#0891b2', url: GH + 'check/#stats', desc: '학년별 · 형제 · 부모님 연락처' },
   { sec: 'ops', name: '전화 대상', icon: 'phone', bg: '#b91c1c', url: GH + 'check/#call', desc: '연락 없이 2일 이상 결석' },
   { sec: 'ops', name: '차량 스케줄', icon: 'bus', bg: '#ca8a04', url: GH + 'check/#bus', desc: '노선도 · 실시간 위치 · 탑승 명단' },
-  { sec: 'ops', name: '운행 화면', icon: 'bus', bg: '#15803d', url: GH + 'check/#drive', desc: '기사님·선생님 폰 GPS 운행' },
+  { sec: 'ops', name: '운행 화면', icon: 'pin', bg: '#15803d', url: GH + 'check/#drive', desc: '기사님·선생님 폰 GPS 운행' },
   { sec: 'ops', name: '도보 픽업', icon: 'walk', bg: '#65a30d', url: GH + 'exit/', desc: '요일별 하원 · 도보 픽업 체크' },
   // 수련비
   { sec: 'money', name: '정도2관 수련비', icon: 'won', bg: '#d97706', url: GH + 'check/#fee', desc: '월별 원비 · 결석 차감 · 엑셀' },
@@ -52,6 +52,7 @@ window.JD_ICONS = {
   sms: 'M4 5h12v8H8l-4 3z M10 15h6l4 3v-8h-2',
   ppl: 'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M3 19c0-3 3-5 6-5s6 2 6 5 M16 5a3 3 0 0 1 0 6 M18 14c2 .5 3 2.5 3 5',
   phone: 'M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z',
+  pin: 'M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z M12 7.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z',
   bus: 'M5 4h14v11H5z M5 10h14 M7 15v3 M17 15v3 M8 13h1 M15 13h1',
   walk: 'M10 4a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0 M11 8l-2 5 3 2v5 M11 8l4 3 3-1 M9 13l-3 6',
   won: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M8 8l1.5 8 2.5-6 2.5 6L16 8 M7 12h10',
