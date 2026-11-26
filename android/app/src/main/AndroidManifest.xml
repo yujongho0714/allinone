@@ -44,6 +44,13 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!-- 다른 앱 화면에서 '메인 메뉴로' 누르면 올인원 앱으로 돌아오기 (jdaio://home) -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="jdaio" android:host="home" />
+            </intent-filter>
         </activity>
     </application>
 </manifest>

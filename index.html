@@ -122,7 +122,28 @@ $('#q').addEventListener('input', render);
 render();
 
 function sheet(html){ const d = document.createElement('div'); d.className = 'sheet'; d.innerHTML = `<div class="box">${html}<button class="close">닫기</button></div>`; d.onclick = e => { if (e.target === d || e.target.classList.contains('close')) d.remove(); }; document.body.appendChild(d); return d; }
-function go(url){ if (IN_APP) AIO.open(url); else window.open(url, '_blank', 'noopener'); }
+// 올인원에서 연 앱이라는 표시(aio=1 / 폰 앱은 aio=app)를 붙여서, 그 앱에서 뒤로가기하면 '메인 메뉴로 갈까요?'를 물어봐요
+function tagUrl(url){ if (!/^https:\/\/yujongho0714\.github\.io\//.test(url)) return url; const i = url.indexOf('#'), base = i < 0 ? url : url.slice(0, i), hash = i < 0 ? '' : url.slice(i);
+  return base + (base.includes('?') ? '&' : '?') + 'aio=' + (IN_APP ? 'app' : '1') + hash; }
+function go(url){ url = tagUrl(url); if (IN_APP) AIO.open(url); else location.href = url; }
+// 홈에서 뒤로가기 = '종료할까요?' (확인을 눌러야만 나가요)
+(function(){
+  try { history.pushState({ home: 1 }, '', location.href); } catch(e){}
+  let asking = false;
+  addEventListener('popstate', e => {
+    if (e.state && e.state.home) return;
+    try { history.pushState({ home: 1 }, '', location.href); } catch(err){}
+    if (asking) return; asking = true;
+    const d = sheet(`<h3>정도 올인원을 종료할까요?</h3><p>확인을 누르면 닫혀요.</p><button class="opt" id="exitYes" style="justify-content:center;background:#f5c518;color:#0c1428;border-color:#f5c518">종료</button>`);
+    const done = () => { asking = false; };
+    d.querySelector('.close').textContent = '취소'; d.addEventListener('click', ev => { if (ev.target === d || ev.target.classList.contains('close')) done(); });
+    d.querySelector('#exitYes').onclick = () => { done(); d.remove();
+      if (IN_APP && AIO.exit){ AIO.exit(); return; }
+      window.close();
+      setTimeout(() => { document.body.innerHTML = `<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;text-align:center;font-family:'Noto Sans KR',sans-serif;color:#f3f4f6"><div style="width:64px;height:64px;border-radius:18px;background:#f5c518;color:#0c1428;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:28px">正</div><b style="font-size:22px">정도 올인원을 닫았어요</b><span style="color:#9ca3af">이 탭은 닫아도 돼요</span><a href="${location.pathname}" style="background:#f5c518;color:#0c1428;font-weight:900;padding:12px 22px;border-radius:14px;text-decoration:none">다시 열기</a></div>`; }, 200);
+    };
+  });
+})();
 function openApp(a){
   if (a.soon){ sheet(`<h3>${esc(a.name)}</h3><p>곧 만들어요. 다 되면 여기서 바로 열려요.<br><small>${esc(a.desc || '')}</small></p>`); return; }
   if (IN_APP && a.pkg && a.url){

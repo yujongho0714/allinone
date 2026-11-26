@@ -92,7 +92,11 @@ public class MainActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        if (web.canGoBack()) web.goBack(); else super.onBackPressed();
+        // 홈 화면이 뒤로가기를 받아서 '종료할까요?'를 물어봐요. 홈 화면을 못 불러온 경우엔 여기서 물어봐요.
+        if (web.canGoBack()) { web.goBack(); return; }
+        new AlertDialog.Builder(this).setTitle("정도 올인원").setMessage("올인원을 종료할까요?")
+            .setPositiveButton("종료", new DialogInterface.OnClickListener() { @Override public void onClick(DialogInterface d, int w) { finish(); } })
+            .setNegativeButton("취소", null).show();
     }
 
     @Override
@@ -120,6 +124,7 @@ public class MainActivity extends Activity {
 
     class Bridge {
         @JavascriptInterface public String version() { return String.valueOf(myBuild()); }
+        @JavascriptInterface public void exit() { main.post(new Runnable() { @Override public void run() { finish(); } }); }
         @JavascriptInterface public void open(final String url) { main.post(new Runnable() { @Override public void run() { openTab(url); } }); }
         @JavascriptInterface public boolean has(String pkg) {
             try { getPackageManager().getPackageInfo(pkg, 0); return true; } catch (Exception e) { return false; }
