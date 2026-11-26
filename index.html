@@ -153,8 +153,11 @@ function exitSheet(){
   d.addEventListener('click', ev => { if (ev.target === d || ev.target.classList.contains('close')) done(); });
   d.querySelector('#exitYes').onclick = () => { done(); d.remove(); leaveOK = true;
     if (IN_APP && AIO.exit){ AIO.exit(); return; }
-    window.close();
-    setTimeout(() => { document.body.innerHTML = `<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;text-align:center;font-family:'Noto Sans KR',sans-serif;color:#f3f4f6"><div style="width:64px;height:64px;border-radius:18px;background:#f5c518;color:#0c1428;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:28px">正</div><b style="font-size:22px">정도 올인원을 닫았어요</b><span style="color:#9ca3af">이 탭은 닫아도 돼요</span><a href="${location.pathname}" style="background:#f5c518;color:#0c1428;font-weight:900;padding:12px 22px;border-radius:14px;text-decoration:none">다시 열기</a></div>`; }, 200);
+    window.close();                                   // PC에 설치한 앱 창이면 여기서 닫혀요
+    // 크롬 탭은 사이트가 스스로 닫을 수 없어서, 올인원에 들어오기 전 화면으로 바로 돌아가요 (뒤로가기 여러 번 한 것과 같아요)
+    const steps = ((history.state && history.state.home) || 0) + 1;
+    setTimeout(() => { if (!document.hidden) history.go(-steps); }, 60);
+    setTimeout(() => { if (document.hidden) return; document.body.innerHTML = `<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;text-align:center;font-family:'Noto Sans KR',sans-serif;color:#f3f4f6"><div style="width:64px;height:64px;border-radius:18px;background:#f5c518;color:#0c1428;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:28px">正</div><b style="font-size:22px">정도 올인원을 닫았어요</b><span style="color:#9ca3af;line-height:1.6">크롬에서 바로 열면 탭은 직접 닫아야 해요 (탭 버튼 → ✕)<br>폰 올인원 앱으로 쓰면 [종료]를 누르는 순간 앱이 닫혀요</span><a href="${location.pathname}" style="background:#f5c518;color:#0c1428;font-weight:900;padding:12px 22px;border-radius:14px;text-decoration:none">다시 열기</a></div>`; }, 900);
   };
   return true;
 }
