@@ -19,7 +19,7 @@ window.JD_APPS = [
   // 도장 운영
   { sec: 'ops', name: '출석체크', icon: 'att', bg: '#2563eb', url: GH + 'check/', pkg: 'com.jungdo.attend', install: 'https://github.com/yujongho0714/check/releases/latest', desc: 'PC 관리 · 키오스크 · 문자 폰' },
   { sec: 'ops', name: '단체문자', icon: 'sms', bg: '#16a34a', url: GH + 'check/#chat', desc: '단체방처럼 보고 한 분께 답장' },
-  { sec: 'ops', name: '수련생 현황', icon: 'ppl', bg: '#0891b2', url: GH + 'check/#roster', desc: '학년별 · 형제 · 부모님 연락처' },
+  { sec: 'ops', name: '수련생 현황', icon: 'ppl', bg: '#0891b2', url: GH + 'check/#stats', desc: '학년별 · 형제 · 부모님 연락처' },
   { sec: 'ops', name: '전화 대상', icon: 'phone', bg: '#b91c1c', url: GH + 'check/#call', desc: '연락 없이 2일 이상 결석' },
   { sec: 'ops', name: '차량 스케줄', icon: 'bus', bg: '#ca8a04', soon: true, desc: '부별 차량 시간 · 탑승 명단' },
   { sec: 'ops', name: '도보 픽업', icon: 'walk', bg: '#65a30d', url: GH + 'exit/', desc: '요일별 하원 · 도보 픽업 체크' },
@@ -29,7 +29,7 @@ window.JD_APPS = [
   // 심사 · 띠
   { sec: 'exam', name: '승급심사', icon: 'exam', bg: '#7c3aed', url: GH + 'Simsa/', desc: '일반 · 국기원 심사 · 명예의 전당' },
   { sec: 'exam', name: '심사 발표', icon: 'medal', bg: '#6d28d9', url: GH + 'simsa222/', desc: '승급심사 결과 발표' },
-  { sec: 'exam', name: '띠 체크', icon: 'belt', bg: '#1f2937', soon: true, desc: '지급 여부 · 현재 띠 · 엑셀' },
+  { sec: 'exam', name: '띠 체크', icon: 'belt', bg: '#1f2937', url: GH + 'Simsa/#belt', desc: '지급 여부 · 현재 띠 · 엑셀' },
   { sec: 'exam', name: '심사 영상 촬영', icon: 'cam', bg: '#be185d', pkg: 'kr.jungdo.video', install: 'https://github.com/yujongho0714/movie/releases/latest', desc: '찍고 이름으로 저장 · 카톡 전송' },
   // 수련 · 교육
   { sec: 'edu', name: '월간 수련계획표', icon: 'cal', bg: '#0d9488', url: GH + 'plan/', desc: '달력 만들기 · 인쇄' },
