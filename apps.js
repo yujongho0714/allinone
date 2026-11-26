@@ -34,7 +34,7 @@ window.JD_APPS = [
   // 수련 · 교육
   { sec: 'edu', name: '월간 수련계획표', icon: 'cal', bg: '#0d9488', url: GH + 'plan/', desc: '달력 만들기 · 인쇄' },
   { sec: 'edu', name: '라이프 스킬', icon: 'heart', bg: '#e11d48', soon: true, desc: '월간 인성 미션지' },
-  { sec: 'edu', name: '인성교육 만화', icon: 'book', bg: '#9333ea', soon: true, desc: '인성 이야기 만화' },
+  { sec: 'edu', name: '인성교육 영상', icon: 'book', bg: '#9333ea', url: GH + 'check/#edu', desc: '월·주차별 인성 영상 · 이번 주 바로 틀기' },
   { sec: 'edu', name: '줄넘기', icon: 'rope', bg: '#2563eb', url: GH + 'jumprope/', desc: '줄넘기 시합 · 급수' },
   // 영상 코칭
   { sec: 'video', name: '코치 영상분석', icon: 'coach', bg: '#0f766e', url: GH + 'coach/', desc: '각도기 · 관절 · 그림' },
