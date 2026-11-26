@@ -24,8 +24,8 @@ window.JD_APPS = [
   { sec: 'ops', name: '차량 스케줄', icon: 'bus', bg: '#ca8a04', soon: true, desc: '부별 차량 시간 · 탑승 명단' },
   { sec: 'ops', name: '도보 픽업', icon: 'walk', bg: '#65a30d', url: GH + 'exit/', desc: '요일별 하원 · 도보 픽업 체크' },
   // 수련비
-  { sec: 'money', name: '정도2관 수련비', icon: 'won', bg: '#d97706', url: GH + 'cash/', desc: '월별 원비 · 결석 차감 · 엑셀' },
-  { sec: 'money', name: '미납 정리', icon: 'unpaid', bg: '#dc2626', url: GH + 'cash/', desc: '몇 개월 미납 · 안내 문자' },
+  { sec: 'money', name: '정도2관 수련비', icon: 'won', bg: '#d97706', url: GH + 'check/#fee', desc: '월별 원비 · 결석 차감 · 엑셀' },
+  { sec: 'money', name: '미납 정리', icon: 'unpaid', bg: '#dc2626', url: GH + 'check/#unpaid', desc: '몇 개월 미납 · 안내 문자' },
   // 심사 · 띠
   { sec: 'exam', name: '승급심사', icon: 'exam', bg: '#7c3aed', url: GH + 'Simsa/', desc: '일반 · 국기원 심사 · 명예의 전당' },
   { sec: 'exam', name: '심사 발표', icon: 'medal', bg: '#6d28d9', url: GH + 'simsa222/', desc: '승급심사 결과 발표' },
