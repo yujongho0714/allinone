@@ -44,7 +44,7 @@ window.JD_APPS = [
   { sec: 'game', name: '제미타', icon: 'target', bg: '#dc2626', url: GH + 'attack/', desc: '발차기 센서 게임' },
   { sec: 'game', name: '포켓몬', icon: 'ball', bg: '#ea580c', url: GH + 'attack/poke/', desc: '포켓몬 어드벤처' },
   { sec: 'game', name: '끝말잇기', icon: 'word', bg: '#4f46e5', url: GH + 'index3/', desc: 'RPG 끝말잇기' },
-  { sec: 'game', name: '교육게임', icon: 'edu', bg: '#059669', url: GH + 'tile/', desc: '태권도 타일 마스터 (나이별은 준비 중)' },
+  { sec: 'game', name: '교육게임', icon: 'edu', bg: '#059669', url: GH + 'allinone/games/', desc: '나이별 게임 오락실 · 끝말잇기 · 타일 마스터' },
 ];
 
 window.JD_ICONS = {
