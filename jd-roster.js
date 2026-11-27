@@ -49,6 +49,8 @@
     docs.forEach(function(d){
       var x = d.data ? d.data() : d; var id = d.id; var nm = String(x.name || '').trim();
       if (!nm || x.demo) return;
+      // 관장 · 사범 · 코치는 수련생이 아니에요 (모든 앱 명단에서 빠짐)
+      if (x.staff === true || nm === '유종호' || /^(관장|부관장|사범|코치)$/.test(String(x.grade || '').trim())) return;
       var left = x.status === 'LEFT', lm = String(x.leftMonth || '');
       L.push({ id: id, name: nm, grade: gradeOf(x), belt: normBelt(x.belt), jump: String(x.jumpGrade || '').trim(),
         status: left ? 'LEFT' : 'ACTIVE', leftMonth: lm, out: left && (!lm || lm < mk),
