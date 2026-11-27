@@ -18,18 +18,18 @@
 <style>:root{--yjh003eb1-e8e5:0}</style>
 
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f4efe4">
+<meta name="theme-color" content="#ffffff">
 <title>정도 올인원</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-/* 밝은 업무형 홈: 한지 느낌 바탕 · 남색 글씨 · 금색 포인트 · 원장님 아이콘 그림 */
-:root{--bg:#f4efe4;--card:#fffdf8;--line:#e2d9c6;--ink:#14213d;--sub:#6b6252;--gold:#b8860b;--navy:#14213d}
+/* 밝은 업무형 홈: 흰 바탕 · 남색 글씨 · 원장님 아이콘 그림 */
+:root{--bg:#ffffff;--card:#ffffff;--line:#e6e8ee;--ink:#14213d;--sub:#6b7280;--gold:#b8860b;--navy:#14213d}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',system-ui,sans-serif}
-body{min-height:100vh;background:url(ui/aio/aio_bg_paper.webp) center/640px auto repeat,var(--bg)}
+body{min-height:100vh;background:var(--bg)}
 .wrap{max-width:1180px;margin:0 auto;padding:max(18px,env(safe-area-inset-top)) 16px 40px}
 header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .logo{width:54px;height:54px;flex:none;background:url(ui/aio/logo_mark.webp) center/contain no-repeat;font-size:0}
@@ -39,24 +39,24 @@ header .sp{flex:1}
 .date{font-size:13px;color:var(--sub);text-align:right;white-space:nowrap;font-weight:700}
 .hero{position:relative;height:92px;margin:0 0 14px;border-radius:14px;overflow:hidden;background:#14213d url(ui/aio/aio_bg_kiosk.webp) right center/auto 100% no-repeat;box-shadow:0 2px 0 #0b1328,0 8px 18px rgba(20,33,61,.18);display:flex;align-items:center;padding:0 18px}
 .hero b{color:#f3d27a;font-size:17px;font-weight:900;text-shadow:0 2px 0 rgba(0,0,0,.4)}.hero small{display:block;color:#d9dfef;font-size:12.5px;font-weight:500;margin-top:3px}
-.search{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 14px;height:46px;margin-bottom:16px;box-shadow:inset 0 1px 3px rgba(20,33,61,.08)}
+.search{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 14px;height:46px;margin-bottom:16px;box-shadow:none;background:#f5f6f8;border-color:#f5f6f8}
 .search input{flex:1;border:0;outline:0;background:transparent;color:var(--ink);font:inherit;font-size:15px}
-.search input::placeholder{color:#9a907d}
+.search input::placeholder{color:#9ca3af}
 .sec{margin-bottom:20px}
-.sech{display:flex;align-items:baseline;gap:8px;border-bottom:2px solid var(--navy);padding-bottom:6px;margin-bottom:12px}
+.sech{display:flex;align-items:baseline;gap:8px;border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:12px}
 .sech b{font-size:16.5px;font-weight:900;color:var(--navy)}
 .sech span{font-size:12.5px;color:var(--sub)}
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 6px}
 .app{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;text-align:center}
 .ic{position:relative;width:66px;height:66px;display:flex;align-items:center;justify-content:center;transition:transform .09s ease-out;margin-bottom:2px}
-.ic img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 3px rgba(20,33,61,.22))}
+.ic img{width:100%;height:100%;object-fit:contain}
 .ic svg{width:34px;height:34px;padding:14px;box-sizing:content-box;background:var(--c);border-radius:16px;stroke:#fff}
 .app:active .ic,.app.press .ic{transform:translateY(3px) scale(.97)}
 @media (hover:hover){.app:hover .ic{transform:translateY(-2px)}}
 .app:focus-visible .ic{outline:3px solid var(--gold);outline-offset:3px;border-radius:14px}
 .nm{font-size:12.5px;font-weight:800;line-height:1.25;color:var(--navy);word-break:keep-all}
 .ds{display:none}
-.badge{position:absolute;top:-4px;right:calc(50% - 40px);background:#efe7d6;color:#6b6252;border:1px solid var(--line);font-size:10.5px;font-weight:800;padding:1px 6px;border-radius:99px;white-space:nowrap}
+.badge{position:absolute;top:-4px;right:calc(50% - 40px);background:#f3f4f6;color:#6b7280;border:1px solid var(--line);font-size:10.5px;font-weight:800;padding:1px 6px;border-radius:99px;white-space:nowrap}
 .app.soon .ic{filter:grayscale(.8) opacity(.7)}
 /* PC: 설명까지 보이는 카드 */
 @media (min-width:900px){
@@ -64,9 +64,9 @@ header .sp{flex:1}
   .hero{height:110px}
   .secs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 26px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .app{flex-direction:row;align-items:center;text-align:left;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;box-shadow:0 2px 0 #e0d6c1;transition:transform .09s,box-shadow .09s,border-color .09s}
-  .app:hover{border-color:#c9b98f;box-shadow:0 3px 0 #d6c9a8,0 8px 16px rgba(20,33,61,.08)}
-  .app:active,.app.press{transform:translateY(2px);box-shadow:0 0 0 #e0d6c1}
+  .app{flex-direction:row;align-items:center;text-align:left;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;box-shadow:none;transition:transform .09s,box-shadow .09s,border-color .09s}
+  .app:hover{border-color:#cfd4de;box-shadow:0 4px 12px rgba(20,33,61,.06)}
+  .app:active,.app.press{transform:translateY(1px)}
   .app:active .ic,.app.press .ic{transform:none}
   .ic{width:54px;height:54px;flex:none;margin:0}
   .ic svg{width:24px;height:24px;padding:12px}
@@ -80,7 +80,7 @@ header .sp{flex:1}
 .sheet .box{background:var(--card);border:1px solid var(--line);border-radius:18px 18px 0 0;width:min(520px,100%);padding:20px 18px max(22px,env(safe-area-inset-bottom));animation:up .2s ease-out;color:var(--ink)}
 @media (min-width:900px){.sheet{align-items:center}.sheet .box{border-radius:18px}}
 .sheet h3{margin:0 0 4px;font-size:19px;color:var(--navy)}.sheet p{margin:0 0 14px;color:var(--sub);font-size:14px;line-height:1.5}
-.opt{all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;width:100%;box-sizing:border-box;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px;font-weight:800;color:var(--navy);box-shadow:0 2px 0 #e0d6c1;transition:transform .08s,box-shadow .08s}
+.opt{all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;width:100%;box-sizing:border-box;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px;font-weight:800;color:var(--navy);box-shadow:none;transition:transform .08s}
 .opt small{display:block;font-weight:500;color:var(--sub);font-size:12.5px}
 .opt .ic{width:42px;height:42px;margin:0}.opt .ic svg{width:20px;height:20px;padding:11px;border-radius:12px}
 .opt:active{transform:translateY(2px);box-shadow:none}
@@ -93,7 +93,7 @@ header .sp{flex:1}
 .close{all:unset;cursor:pointer;display:block;text-align:center;width:100%;padding:12px 0 2px;color:var(--sub);font-weight:700}
 @keyframes up{from{transform:translateY(30px);opacity:.4}}@keyframes fd{from{opacity:0}}
 #updbar{position:fixed;left:12px;right:12px;top:12px;z-index:99;background:var(--navy);color:#fff;border-radius:12px;padding:12px 14px;font-weight:800;font-size:14px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
-.foot{color:#8a806c;font-size:12px;text-align:center;margin-top:10px}
+.foot{color:#9ca3af;font-size:12px;text-align:center;margin-top:10px}
 </style>
 </head>
 <body>
@@ -106,7 +106,7 @@ header .sp{flex:1}
   </header>
   <div class="hero"><div><b>오늘도 힘찬 하루 보내세요</b><small>앱을 누르면 바로 열려요 · 위에서 찾기도 돼요</small></div></div>
   <label class="search">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a907d" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14z M20 20l-4-4"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14z M20 20l-4-4"/></svg>
     <input id="q" type="search" placeholder="앱 찾기 (예: 수련비, 심사)" aria-label="앱 찾기">
   </label>
   <button class="dl" id="dl" hidden></button>
@@ -119,7 +119,7 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const IN_APP = !!window.AIO;   // 폰 올인원 앱 안에서 열렸는지
 const AIO_IMG = new Set(['att','sms','ppl','phone','bus','pin','walk','won','unpaid','exam','medal','belt','cam','cal','heart','book','rope','coach','cup','target','ball','word','edu','down','pc','video']);
-const svg = (k, s) => AIO_IMG.has(k) ? `<img src="ui/aio/aio_${k}.webp" alt="" width="${s||30}" height="${s||30}">` : `<svg width="${s||30}" height="${s||30}" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${JD_ICONS[k] || JD_ICONS.att}"/></svg>`;
+const svg = (k, s) => AIO_IMG.has(k) ? `<img src="ui/aio2/aio_${k}.webp" alt="" width="${s||30}" height="${s||30}">` : `<svg width="${s||30}" height="${s||30}" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${JD_ICONS[k] || JD_ICONS.att}"/></svg>`;
 { const d = new Date(); $('#today').innerHTML = `${d.getMonth()+1}월 ${d.getDate()}일<br>${'일월화수목금토'[d.getDay()]}요일`; }
 $('#foot').textContent = IN_APP ? '폰 올인원 앱 ' + (AIO.version ? 'v' + AIO.version() : '') : 'PC · 웹 올인원 — 폰에서는 올인원 앱을 설치해 쓰세요';
 
